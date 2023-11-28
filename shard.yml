@@ -7,3 +7,10 @@ authors:
 crystal: 1.9.2
 
 license: MIT
+
+dependencies:
+  crumble:
+    github: sbsoftware/crumble
+    branch: "releases/v0.12.0"
+  stimulus:
+    github: sbsoftware/stimulus.cr
