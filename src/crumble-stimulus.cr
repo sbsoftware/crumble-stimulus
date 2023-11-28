@@ -1,6 +1,9 @@
-# TODO: Write documentation for `Crumble::Stimulus`
-module Crumble::Stimulus
-  VERSION = "0.1.0"
+require "./crumble/stimulus_controllers"
 
-  # TODO: Put your code here
+module Crumble::Stimulus
+  extend self
+
+  def stimulus_url
+    "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js"
+  end
 end
