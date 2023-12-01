@@ -1,6 +1,6 @@
 # crumble-stimulus
 
-TODO: Write a description here
+Seamless integration of [stimulus.cr](https://github.com/sbsoftware/stimulus.cr) into [crumble](https://github.com/sbsoftware/crumble), providing a JS module that automatically includes all your `Stimulus::Controller`s and can be easily added to your template.
 
 ## Installation
 
@@ -9,7 +9,7 @@ TODO: Write a description here
    ```yaml
    dependencies:
      crumble-stimulus:
-       github: your-github-user/crumble-stimulus
+       github: sbsoftware/crumble-stimulus
    ```
 
 2. Run `shards install`
@@ -17,23 +17,22 @@ TODO: Write a description here
 ## Usage
 
 ```crystal
+# or wherever your Stimulus controllers are
+require "./stimulus_controllers/*"
+# make sure this comes after you required all controllers you want to include, otherwise they'll be missing
 require "crumble-stimulus"
 ```
 
-TODO: Write usage instructions here
+In your template:
 
-## Development
+```crystal
+html do
+  head do
+    # [...]
+    script Crumble::StimulusControllers
+    # [...]
+  end
+end
+```
 
-TODO: Write development instructions here
-
-## Contributing
-
-1. Fork it (<https://github.com/your-github-user/crumble-stimulus/fork>)
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
-## Contributors
-
-- [Stefan Bilharz](https://github.com/your-github-user) - creator and maintainer
+And that's it!
