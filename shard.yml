@@ -11,6 +11,6 @@ license: MIT
 dependencies:
   crumble:
     github: sbsoftware/crumble
-    branch: "releases/v0.12.0"
+    version: ">= 0.12.0"
   stimulus:
     github: sbsoftware/stimulus.cr
