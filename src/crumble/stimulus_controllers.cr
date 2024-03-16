@@ -13,7 +13,7 @@ module Crumble
       window.Stimulus = Application.start._call
 
       {% for ctrl_klass in ::Stimulus::Controller.all_subclasses %}
-        Stimulus.register({{ctrl_klass}}.controller_name.to_js_ref, {{ctrl_klass.name.split("::").last.id}})
+        Stimulus.register({{ctrl_klass}}.controller_name.to_js_ref, {{ctrl_klass}}.to_js_ref)
       {% end %}
     end
 
