@@ -17,10 +17,10 @@ Seamless integration of [stimulus.cr](https://github.com/sbsoftware/stimulus.cr)
 ## Usage
 
 ```crystal
+# make sure this comes before you require any controllers you want to include, otherwise they'll be missing
+require "crumble-stimulus"
 # or wherever your Stimulus controllers are
 require "./stimulus_controllers/*"
-# make sure this comes after you required all controllers you want to include, otherwise they'll be missing
-require "crumble-stimulus"
 ```
 
 In your template:
