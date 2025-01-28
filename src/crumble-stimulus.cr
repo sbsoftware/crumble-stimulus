@@ -1,4 +1,5 @@
 require "./crumble/stimulus_controllers"
+require "./ext/**"
 
 module Crumble::Stimulus
   extend self
