@@ -9,6 +9,9 @@ crystal: 1.9.2
 license: MIT
 
 dependencies:
+  to_html:
+    github: sbsoftware/to_html.cr
+    version: ">= 1.2.1"
   crumble:
     github: sbsoftware/crumble
     version: ">= 0.12.0"
