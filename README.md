@@ -1,6 +1,6 @@
 # crumble-stimulus
 
-Seamless integration of [stimulus.cr](https://github.com/sbsoftware/stimulus.cr) into [crumble](https://github.com/sbsoftware/crumble), providing a JS module that automatically includes all your `Stimulus::Controller`s and can be easily added to your template.
+Seamless integration of [stimulus.cr](https://github.com/sbsoftware/stimulus.cr) into [crumble](https://github.com/sbsoftware/crumble), providing a JS module that includes all your `Stimulus::Controller`s that is automatically added to your layout template.
 
 ## Installation
 
@@ -17,22 +17,25 @@ Seamless integration of [stimulus.cr](https://github.com/sbsoftware/stimulus.cr)
 ## Usage
 
 ```crystal
-# make sure this comes before you require any controllers you want to include, otherwise they'll be missing
+# make sure this comes before you require any controllers you want to include,
+# otherwise they'll be missing
 require "crumble-stimulus"
 # or wherever your Stimulus controllers are
 require "./stimulus_controllers/*"
 ```
 
-In your template:
+The `Crumble::StimulusControllers` script is automatically added to any template inheriting from the generic `ToHtml::Layout`.
+
+### Custom Layout
+
+If you don't use a layout based on `ToHtml::Layout`, you'll have to include the `Crumble::StimulusControllers` script manually:
 
 ```crystal
 html do
   head do
     # [...]
-    script Crumble::StimulusControllers
+    Crumble::StimulusControllers
     # [...]
   end
 end
 ```
-
-And that's it!
