@@ -26,5 +26,9 @@ module Crumble
       attrs["type"] = "module"
       attrs["src"] = @@asset_file.uri_path
     end
+
+    ToHtml.class_template do
+      script self
+    end
   end
 end
