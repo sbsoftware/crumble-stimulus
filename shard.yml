@@ -11,7 +11,7 @@ license: MIT
 dependencies:
   to_html:
     github: sbsoftware/to_html.cr
-    version: ">= 1.2.1"
+    version: ">= 1.4.0"
   crumble:
     github: sbsoftware/crumble
     version: ">= 0.12.0"
