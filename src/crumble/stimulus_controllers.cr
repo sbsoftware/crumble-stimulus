@@ -30,5 +30,9 @@ module Crumble
     ToHtml.class_template do
       script self
     end
+
+    def self.uri_path
+      @@asset_file.uri_path
+    end
   end
 end
