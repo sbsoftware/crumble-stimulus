@@ -6,14 +6,20 @@ module Crumble
   class StimulusControllers < JS::Module
     js_import Application, Controller, from: Crumble::Stimulus.stimulus_url
 
-    def self.add_controller(klass)
-      js_class klass
+    CONTROLLER_CLASSES = [] of ::Stimulus::Controller.class
+
+    macro add_controller(klass)
+      class ::Crumble::StimulusControllers
+        js_class {{klass}}
+
+        {% CONTROLLER_CLASSES << klass %}
+      end
     end
 
     def_to_js do
       window.Stimulus = Application.start._call
 
-      {% for ctrl_klass in ::Stimulus::Controller.all_subclasses %}
+      {% for ctrl_klass in CONTROLLER_CLASSES %}
         Stimulus.register({{ctrl_klass}}.controller_name.to_js_ref, {{ctrl_klass}}.to_js_ref)
       {% end %}
     end
