@@ -19,4 +19,4 @@ dependencies:
     github: sbsoftware/stimulus.cr
   js:
     github: sbsoftware/js.cr
-    version: "~> 1.7.0"
+    version: ">= 1.8.0"

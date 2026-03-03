@@ -12,6 +12,9 @@ module Crumble::StimulusControllersSpec
   describe ::Crumble::StimulusControllers do
     it "contains Stimulus.register calls for any defined Stimulus::Controller" do
       js = ::Crumble::StimulusControllers.to_js
+
+      js.should contain("Application.start()")
+
       controllers = [Admin::AuditLogController, UserProfileController]
 
       controllers.each do |controller|
