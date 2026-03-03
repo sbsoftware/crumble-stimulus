@@ -16,16 +16,16 @@ module Crumble
       end
     end
 
-    def_to_js do
-      window.Stimulus = Application.start._call
-
-      {% for ctrl_klass in CONTROLLER_CLASSES %}
-        Stimulus.register({{ctrl_klass}}.controller_name.to_js_ref, {{ctrl_klass}}.to_js_ref)
-      {% end %}
-    end
-
     macro finished
       @@asset_file = JavascriptFile.new("/assets/stimulus_controllers.js", self.to_js)
+
+      def_to_js do
+        window.Stimulus = Application.start._call
+
+        {% for ctrl_klass in CONTROLLER_CLASSES %}
+          Stimulus.register({{ctrl_klass}}.controller_name.to_js_ref, {{ctrl_klass}}.to_js_ref)
+        {% end %}
+      end
     end
 
     def self.to_html_attrs(_tag, attrs)
