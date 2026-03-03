@@ -17,3 +17,6 @@ dependencies:
     version: ">= 0.12.0"
   stimulus:
     github: sbsoftware/stimulus.cr
+  js:
+    github: sbsoftware/js.cr
+    version: "~> 1.7.0"
