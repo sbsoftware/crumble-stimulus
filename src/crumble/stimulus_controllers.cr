@@ -1,6 +1,7 @@
 require "js"
 require "stimulus"
 require "crumble"
+require "./stimulus/stimulus_asset"
 
 module Crumble
   class StimulusControllers < JS::Module

@@ -24,7 +24,13 @@ require "crumble-stimulus"
 require "./stimulus_controllers/*"
 ```
 
-The `Crumble::StimulusControllers` script is automatically added to any template inheriting from the generic `ToHtml::Layout`.
+The `Crumble::StimulusControllers` script is automatically added to any template inheriting from the generic `ToHtml::Layout`. Stimulus is served by the application as a fingerprinted asset, so pages do not depend on a third-party request for the runtime.
+
+### Vendored Stimulus runtime
+
+The shard vendors the `stimulus.js` ES module from `@hotwired/stimulus` 3.2.2. The upstream MIT license is included at `vendor/stimulus/3.2.2/MIT-LICENSE`, and its notice is preserved in the served JavaScript.
+
+To upgrade Stimulus, replace both vendored files from the same pinned upstream release, preserve the complete license notice at the start of the JavaScript file, update the version in the registered asset path and this documentation, and run the full spec suite.
 
 ### Custom Layout
 
