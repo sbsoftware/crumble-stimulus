@@ -7,13 +7,24 @@ module Crumble::StimulusControllersSpec
   end
 
   class UserProfileController < ::Stimulus::Controller
+    js_method :connect do
+      this.element.textContent = "Connected"
+    end
+
+    action :save do
+      this.element.textContent = "Saved"
+    end
   end
 
   describe ::Crumble::StimulusControllers do
     it "contains Stimulus.register calls for any defined Stimulus::Controller" do
       js = ::Crumble::StimulusControllers.to_js
 
+      js.should contain(%(import { Application, Controller } from "#{::Crumble::Stimulus::StimulusAsset.uri_path}";))
+      js.should_not contain("unpkg.com")
       js.should contain("Application.start()")
+      js.should contain("connect() {")
+      js.should contain("save() {")
 
       controllers = [Admin::AuditLogController, UserProfileController]
 
